@@ -5,8 +5,17 @@ using System.Text;
 
 namespace Lugia.Helpers.Web
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class HttpHelper
     {
+        /// <summary>
+        /// POST方式提交数据
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="parm"></param>
+        /// <returns></returns>
         public string POST(string url, string parm)
         {
             string ret = string.Empty;
@@ -29,6 +38,11 @@ namespace Lugia.Helpers.Web
             return ret;
         }
 
+        /// <summary>
+        /// GET方式提交数据
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public string GET(string url)
         {
             string ret = string.Empty;
@@ -44,12 +58,22 @@ namespace Lugia.Helpers.Web
             return ret;
         }
 
+        /// <summary>
+        /// 基本不使用
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         [Obsolete("Not implemented")]
         public string PUT(string url)
         {
             return string.Empty;
         }
 
+        /// <summary>
+        /// 基本不使用
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         [Obsolete("Not implemented")]
         public string DELETE(string url)
         {
