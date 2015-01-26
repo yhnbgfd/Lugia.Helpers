@@ -39,6 +39,10 @@
     <AssemblyOriginatorKeyFile>StrongName.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LeapCSharp.NET4.0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=6e1b1368e71eba9b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\LeapCSharp.NET4.0.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -53,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Data\Json\JsonHelper.cs" />
+    <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionGesture.cs" />
+    <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionInitialize.cs" />
+    <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionParameter.cs" />
     <Compile Include="Helpers\Web\HttpHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,7 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\Database\SQLite\" />
-    <Folder Include="Helpers\Hardware\LeapMotion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\LeapCSharp.NET4.0.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
