@@ -97,6 +97,12 @@
     <AppDesigner Include="Properties\" />
     <None Include="StrongName.pfx" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelpersClassLibrary\HelpersClassLibrary.csproj">
+      <Project>{a1c3446d-5596-4e63-9a09-3c7da04dc3f0}</Project>
+      <Name>HelpersClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
