@@ -63,9 +63,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Pages\Algorithms\RSA\Page_RSA.xaml.cs">
+      <DependentUpon>Page_RSA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Pages\Algorithms\RSA\Page_RSA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,12 +102,16 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="StrongName.pfx" />
+    <None Include="Views\ResourceDictionarys\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelpersClassLibrary\HelpersClassLibrary.csproj">
       <Project>{a1c3446d-5596-4e63-9a09-3c7da04dc3f0}</Project>
       <Name>HelpersClassLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Algorithm\RSA\RSAHelper.cs" />
     <Compile Include="Helpers\Database\SQLite\SQLiteHelper.cs" />
     <Compile Include="Helpers\Data\Json\JsonHelper.cs" />
     <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionGesture.cs" />
