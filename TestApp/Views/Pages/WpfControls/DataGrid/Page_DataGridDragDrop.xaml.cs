@@ -6,9 +6,6 @@ using System.Windows.Input;
 
 namespace TestApp.Views.Pages.WpfControls.DataGrid
 {
-    /// <summary>
-    /// Interaction logic for Page_DataGridDragDrop.xaml
-    /// </summary>
     public partial class Page_DataGridDragDrop : Page
     {
         ObservableCollection<Model_DataGrid> _list1;
