@@ -49,6 +49,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.94.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Database\SQLite\SQLiteHelper.cs" />
     <Compile Include="Helpers\Data\Json\JsonHelper.cs" />
     <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionGesture.cs" />
     <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionInitialize.cs" />
@@ -68,11 +73,10 @@
     <None Include="packages.config" />
     <None Include="StrongName.pfx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\Database\SQLite\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\LeapCSharp.NET4.0.dll" />
+    <Content Include="Lib\System.Data.SQLite.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
