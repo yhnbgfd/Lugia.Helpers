@@ -71,6 +71,7 @@
   <ItemGroup>
     <None Include="Helpers\Hardware\LeapMotion\README.md" />
     <None Include="packages.config" />
+    <None Include="README.md" />
     <None Include="StrongName.pfx" />
   </ItemGroup>
   <ItemGroup />
