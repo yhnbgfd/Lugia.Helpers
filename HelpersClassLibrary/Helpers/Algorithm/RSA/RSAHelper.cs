@@ -33,7 +33,15 @@ namespace Lugia.Helpers.Algorithm.RSA
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(privateKey);
-            byte[] cipherbytes = rsa.Decrypt(Convert.FromBase64String(content), false);
+            byte[] cipherbytes = null;
+            try
+            {
+                rsa.Decrypt(Convert.FromBase64String(content), false);
+            }
+            catch (System.Security.Cryptography.CryptographicException)
+            {
+                return "ERROR";
+            }
             return Encoding.UTF8.GetString(cipherbytes);
         }
 
