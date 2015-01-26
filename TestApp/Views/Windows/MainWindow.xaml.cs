@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace TestApp.Views.Windows
 {
@@ -23,6 +12,11 @@ namespace TestApp.Views.Windows
         private void Button_RSA_Click(object sender, RoutedEventArgs e)
         {
             this.Frame_Content.Content = new Pages.Algorithms.RSA.Page_RSA();
+        }
+
+        private void Button_DataGridDragDrop_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame_Content.Content = new Pages.WpfControls.DataGrid.Page_DataGridDragDrop();
         }
     }
 }

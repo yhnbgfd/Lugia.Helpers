@@ -4,20 +4,35 @@ using System.Text;
 
 namespace Lugia.Helpers.Algorithm.RSA
 {
+    /// <summary>
+    /// RSA工具类
+    /// </summary>
     public class RSAHelper
     {
-        public string Encrypt(string publickey, string content)
+        /// <summary>
+        /// 加密
+        /// </summary>
+        /// <param name="publicKey"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public string Encrypt(string publicKey, string content)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            rsa.FromXmlString(publickey);
+            rsa.FromXmlString(publicKey);
             byte[] cipherbytes = rsa.Encrypt(Encoding.UTF8.GetBytes(content), false);
             return Convert.ToBase64String(cipherbytes);
         }
 
-        public string Decrypt(string privatekey, string content)
+        /// <summary>
+        /// 解密
+        /// </summary>
+        /// <param name="privateKey"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public string Decrypt(string privateKey, string content)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            rsa.FromXmlString(privatekey);
+            rsa.FromXmlString(privateKey);
             byte[] cipherbytes = rsa.Decrypt(Convert.FromBase64String(content), false);
             return Encoding.UTF8.GetString(cipherbytes);
         }

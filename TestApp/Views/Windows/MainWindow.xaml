@@ -5,6 +5,7 @@
     <Grid>
         <StackPanel x:Name="Grid_List" HorizontalAlignment="Left"  Margin="0,25,0,0" Width="200" Background="#FFF0F0F0" >
             <Button x:Name="Button_RSA" Content="RSA加密算法小工具" Margin="10,5,10,10" Click="Button_RSA_Click"/>
+            <Button x:Name="Button_DataGridDragDrop" Content="DataGridDragDrop" Margin="10,0,10,10" Click="Button_DataGridDragDrop_Click"/>
         </StackPanel>
         <Frame x:Name="Frame_Content" Content="" Margin="200,25,0,0" NavigationUIVisibility="Hidden"/>
         <Menu Height="25" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Top">

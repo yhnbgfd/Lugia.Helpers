@@ -70,13 +70,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Helpers\Hardware\LeapMotion\README.md" />
     <None Include="packages.config" />
     <None Include="README.md" />
     <None Include="StrongName.pfx" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Helpers\Hardware\LeapMotion\README.txt" />
     <Content Include="Lib\LeapCSharp.NET4.0.dll" />
     <Content Include="Lib\System.Data.SQLite.dll" />
   </ItemGroup>
