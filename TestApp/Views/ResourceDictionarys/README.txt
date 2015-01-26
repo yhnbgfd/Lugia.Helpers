@@ -1,9 +1,9 @@
-# ReadMe
-样子资源文件
+﻿# ReadMe
+样式资源文件
 
-右键添加“Resource Dictionary”并编写控件样式
+右键添加“Resource Dictionary”文件并编写控件样式
 
-然后在App.xaml添加
+然后在App.xaml添加：
     <Application.Resources>  
         <ResourceDictionary>  
             <ResourceDictionary.MergedDictionaries>  
