@@ -36,7 +36,7 @@ namespace Lugia.Helpers.Algorithm.RSA
             byte[] cipherbytes = null;
             try
             {
-                rsa.Decrypt(Convert.FromBase64String(content), false);
+                cipherbytes = rsa.Decrypt(Convert.FromBase64String(content), false);
             }
             catch (System.Security.Cryptography.CryptographicException)
             {

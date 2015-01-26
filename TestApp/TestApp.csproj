@@ -116,9 +116,7 @@
       <Name>HelpersClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Views\ResourceDictionarys\README.txt" />
   </ItemGroup>

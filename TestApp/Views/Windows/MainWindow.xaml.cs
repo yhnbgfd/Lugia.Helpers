@@ -18,5 +18,10 @@ namespace TestApp.Views.Windows
         {
             this.Frame_Content.Content = new Pages.WpfControls.DataGrid.Page_DataGridDragDrop();
         }
+
+        private void MenuItem_File_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

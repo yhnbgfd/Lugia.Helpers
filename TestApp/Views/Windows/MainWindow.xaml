@@ -12,7 +12,7 @@
         <Frame x:Name="Frame_Content" Content="" Margin="200,25,0,0" NavigationUIVisibility="Hidden"/>
         <Menu Height="25" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Top">
             <MenuItem Header="File" VerticalContentAlignment="Center" Height="25">
-                <MenuItem Header="Exit"/>
+                <MenuItem x:Name="MenuItem_File_Exit" Header="Exit" Click="MenuItem_File_Exit_Click"/>
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem Header="About"/>
