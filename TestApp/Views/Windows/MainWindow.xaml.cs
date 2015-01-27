@@ -23,5 +23,10 @@ namespace TestApp.Views.Windows
         {
             this.Close();
         }
+
+        private void MenuItem_About_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame_Content.Content = new Pages.Systems.Page_About();
+        }
     }
 }
