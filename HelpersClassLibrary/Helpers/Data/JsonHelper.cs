@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Lugia.Helpers.Data.Json
+namespace Lugia.Helpers.Data
 {
     /// <summary>
     /// 便捷读取Json字符串

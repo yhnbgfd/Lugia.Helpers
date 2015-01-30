@@ -64,8 +64,8 @@
     <Compile Include="Helpers\Algorithm\MD5Helper.cs" />
     <Compile Include="Helpers\Algorithm\RSAHelper.cs" />
     <Compile Include="Helpers\Database\SQLite\SQLiteHelper.cs" />
-    <Compile Include="Helpers\Data\Json\JsonHelper.cs" />
-    <Compile Include="Helpers\Data\String\StringConvert.cs" />
+    <Compile Include="Helpers\Data\JsonHelper.cs" />
+    <Compile Include="Helpers\Data\StringHelper.cs" />
     <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionGesture.cs" />
     <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionInitialize.cs" />
     <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionParameter.cs" />

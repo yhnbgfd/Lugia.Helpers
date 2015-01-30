@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Lugia.Helpers.Data.String
+namespace Lugia.Helpers.Data
 {
     /// <summary>
     /// string字符串的特殊转化
     /// </summary>
-    public static class StringConvert
+    public static class StringHelper
     {
         /// <summary>
         /// 金额转换成大写中文
