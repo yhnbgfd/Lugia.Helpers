@@ -1,21 +1,117 @@
 ﻿using Leap;
 using System;
 
-namespace Lugia.Helpers.Hardware.LeapMotion
+namespace Lugia.Helpers.Hardware
 {
     /// <summary>
-    /// LeapMotion 手势
+    /// 此类的LeapMotion代码是基于v1版本SDK，.NET3.5下编写并使用于Unity3.5项目，此类库代码只是做了转移，使用了v2.2.2版本、.NET4.0的LepaMotion dll，未作具体测试。
+    /// 以往基于LeapMotion v1的Unity项目，在安装了v2 SDK的电脑上运行的时候，发现个别手势识别不出，可能v2修改了一些接口。
     /// </summary>
-    public class LeapMotionGesture
+    public class LeapMotionHelper
     {
+        private static Controller _controller = new Controller();
+
         /// <summary>
         /// 构造函数
         /// </summary>
-        public LeapMotionGesture()
+        public LeapMotionHelper()
         {
-
+            EnableGesture();
         }
 
+        #region 设置
+        /// <summary>
+        /// LM自带手势开启
+        /// </summary>
+        private void EnableGesture()
+        {
+            _controller.EnableGesture(Gesture.GestureType.TYPECIRCLE);
+            _controller.EnableGesture(Gesture.GestureType.TYPEINVALID);
+            _controller.EnableGesture(Gesture.GestureType.TYPEKEYTAP);
+            _controller.EnableGesture(Gesture.GestureType.TYPESCREENTAP);
+            _controller.EnableGesture(Gesture.GestureType.TYPESWIPE);
+        }
+
+        #endregion
+
+        #region 获取内容
+        /// <summary>
+        /// 获取帧
+        /// </summary>
+        /// <param name="history"></param>
+        /// <returns></returns>
+        public Frame GetFrame(int history = 0)
+        {
+            return _controller.Frame(history);
+        }
+        /// <summary>
+        /// 连接状态
+        /// </summary>
+        public bool IsConnected
+        {
+            get
+            {
+                return _controller.IsConnected;
+            }
+        }
+        /// <summary>
+        /// 当前识别到的手的数量
+        /// </summary>
+        public int CurrentHandsNumber
+        {
+            get
+            {
+                return this.GetFrame().Hands.Count;
+            }
+        }
+        /// <summary>
+        /// 获取手指数量
+        /// </summary>
+        /// <param name="handNumber"></param>
+        /// <returns></returns>
+        public int GetFingersNumber(int handNumber = 0)
+        {
+            return (handNumber < this.CurrentHandsNumber) ? this.GetFrame().Hands[handNumber].Fingers.Count : 0;
+        }
+        /// <summary>
+        /// 获取手掌的坐标
+        /// </summary>
+        /// <returns></returns>
+        public Vector GetPalmPosition(int handNumber = 0)
+        {
+            return (handNumber < this.CurrentHandsNumber) ? this.GetFrame().Hands[handNumber].PalmPosition : new Vector(0, 0, 0);
+        }
+        /// <summary>
+        /// 获取指尖的坐标
+        /// </summary>
+        /// <returns></returns>
+        public Vector GetFingerTipPosition(int handNumber = 0, int fingerNumber = 0)
+        {
+            return (handNumber < this.CurrentHandsNumber) ? this.GetFrame().Hands[handNumber].Fingers[fingerNumber].TipPosition : new Vector(0, 0, 0);
+        }
+        /// <summary>
+        /// 获取所有手指的ID
+        /// </summary>
+        /// <param name="handNumber"></param>
+        /// <param name="frame"></param>
+        /// <returns></returns>
+        private int[] GetFingersID(int handNumber = 0, Frame frame = null)
+        {
+            if (frame == null)
+            {
+                frame = this.GetFrame();
+            }
+            int[] FingersID = new int[frame.Hands[handNumber].Fingers.Count];
+            for (int i = 0; i < FingersID.Length; i++)
+            {
+                FingersID[i] = frame.Hands[handNumber].Fingers[i].Id;
+            }
+            return FingersID;
+        }
+
+        #endregion
+
+        #region 判断动作
         /// <summary>
         /// 画圈手势
         /// 顺时针返回：1
@@ -24,7 +120,7 @@ namespace Lugia.Helpers.Hardware.LeapMotion
         /// <returns></returns>
         public int Circle()
         {
-            Frame LMFrame = LeapMotionInitialize.GetFrame();
+            Frame LMFrame = GetFrame();
             GestureList gestures = LMFrame.Gestures();
             for (int g = 0; g < gestures.Count; g++)
             {
@@ -44,7 +140,6 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return 0;
         }
-
         /// <summary>
         /// 五指收缩手势
         /// </summary>
@@ -63,7 +158,7 @@ namespace Lugia.Helpers.Hardware.LeapMotion
 
             for (int f = CountFrames; f > 0; f--)
             {
-                LMFrame = LeapMotionInitialize.GetFrame(f);
+                LMFrame = GetFrame(f);
                 Hand = LMFrame.Hands[0];
                 Fingers = Hand.Fingers;
                 if (Fingers.Count == 5)
@@ -99,7 +194,6 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return false;
         }
-
         /// <summary>
         /// 五指张开手势
         /// </summary>
@@ -119,7 +213,7 @@ namespace Lugia.Helpers.Hardware.LeapMotion
 
             for (int f = CountFrames; f > 0; f--)
             {
-                LMFrame = LeapMotionInitialize.GetFrame(f);
+                LMFrame = GetFrame(f);
                 Hand = LMFrame.Hands[0];
                 Fingers = Hand.Fingers;
                 if (Fingers.Count == 0 && LMFrame.Hands.Count > 0)
@@ -160,7 +254,6 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return false;
         }
-
         /// <summary>
         /// 手掌滑动手势
         /// 参数：坐标轴X Y Z
@@ -168,9 +261,9 @@ namespace Lugia.Helpers.Hardware.LeapMotion
         /// </summary>
         /// <param name="axis">坐标轴X Y Z</param>
         /// <returns>1 正方向、2 负方向</returns>
-        public int Swipe(string axis)
+        public int HandSwipe(string axis)
         {
-            Frame LMFrame = LeapMotionInitialize.GetFrame();
+            Frame LMFrame = GetFrame();
             GestureList Gestures = LMFrame.Gestures();
             for (int g = 0; g < Gestures.Count; g++)
             {
@@ -230,7 +323,6 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return 0;
         }
-
         /// <summary>
         /// 手指滑动手势
         /// </summary>
@@ -238,7 +330,7 @@ namespace Lugia.Helpers.Hardware.LeapMotion
         /// <returns></returns>
         public int FingerSwipe(string axis)
         {
-            Frame LMFrame = LeapMotionInitialize.GetFrame();
+            Frame LMFrame = GetFrame();
             Finger finger = LMFrame.Hands[0].Fingers[0];
             Vector tipVeloctiy = finger.TipVelocity;
             switch (axis.ToLower())
@@ -281,8 +373,6 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return 0;
         }
-
-
         /// <summary>
         /// 两只手滑动
         /// 触发效果非常差
@@ -291,7 +381,7 @@ namespace Lugia.Helpers.Hardware.LeapMotion
         /// <returns></returns>
         public int SwipeWithTwoHands(string axis)
         {
-            Frame LMFrame = LeapMotionInitialize.GetFrame();
+            Frame LMFrame = GetFrame();
             GestureList gestures = LMFrame.Gestures();
             SwipeGesture swipeNegative = null;     //负方向
             SwipeGesture swipePositive = null;     //正方向
@@ -361,7 +451,6 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return 0;
         }
-
         /// <summary>
         /// 两只手指滑动
         /// </summary>
@@ -369,14 +458,13 @@ namespace Lugia.Helpers.Hardware.LeapMotion
         /// <returns></returns>
         public int SwipeWithTwoFingers(string axis)
         {
-            Frame LMFrame = LeapMotionInitialize.GetFrame();
+            Frame LMFrame = GetFrame();
             if (LMFrame.Hands.Count >= 2)
             {
 
             }
             return 0;
         }
-
         /// <summary>
         /// 当从0有手进入识别范围且z小于0时，返回进入的手的数量
         /// </summary>
@@ -384,8 +472,8 @@ namespace Lugia.Helpers.Hardware.LeapMotion
         public int HandsEnter()
         {
             int EnterHandsNum = 0;//进入的手的统计
-            Frame LastLMFrame = LeapMotionInitialize.GetFrame(1);//上一帧Frame
-            Frame LMFrame = LeapMotionInitialize.GetFrame();
+            Frame LastLMFrame = GetFrame(1);//上一帧Frame
+            Frame LMFrame = GetFrame();
             if (LastLMFrame.Hands.Count == 0 && LMFrame.Hands.Count != 0)
             {
                 for (int i = 0; i < LMFrame.Hands.Count; i++)
@@ -398,5 +486,7 @@ namespace Lugia.Helpers.Hardware.LeapMotion
             }
             return EnterHandsNum;
         }
+
+        #endregion
     }
 }

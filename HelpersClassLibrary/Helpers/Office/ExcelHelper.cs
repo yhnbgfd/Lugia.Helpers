@@ -3,9 +3,9 @@ using System.Data;
 using System.Data.OleDb;
 using System.IO;
 
-namespace Lugia.Helpers.Office.Excel
+namespace Lugia.Helpers.Office
 {
-    class OleDbRead
+    class ExcelHelper
     {
         /// <summary>
         /// 读取指定xls文件与sheet名的内容
@@ -13,7 +13,7 @@ namespace Lugia.Helpers.Office.Excel
         /// <param name="filePath"></param>
         /// <param name="sheetName"></param>
         /// <returns></returns>
-        public DataSet ReadXls(string filePath, string sheetName)
+        public DataSet OleDbReadXls(string filePath, string sheetName)
         {
             DataSet ds = new DataSet();
             if (!File.Exists(filePath))
@@ -43,7 +43,7 @@ namespace Lugia.Helpers.Office.Excel
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public DataSet ReadXls(string filePath)
+        public DataSet OleDbReadXls(string filePath)
         {
             DataSet ds = new DataSet();
             if (!File.Exists(filePath))

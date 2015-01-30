@@ -63,13 +63,13 @@
   <ItemGroup>
     <Compile Include="Helpers\Algorithm\MD5Helper.cs" />
     <Compile Include="Helpers\Algorithm\RSAHelper.cs" />
-    <Compile Include="Helpers\Database\SQLite\SQLiteHelper.cs" />
+    <Compile Include="Helpers\Database\SQLiteHelper.cs" />
     <Compile Include="Helpers\Data\JsonHelper.cs" />
+    <Compile Include="Helpers\Data\SecureStringHelper.cs" />
     <Compile Include="Helpers\Data\StringHelper.cs" />
-    <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionGesture.cs" />
-    <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionInitialize.cs" />
-    <Compile Include="Helpers\Hardware\LeapMotion\LeapMotionParameter.cs" />
-    <Compile Include="Helpers\Office\Excel\OleDbRead.cs" />
+    <Compile Include="Helpers\Hardware\LeapMotionHelper.cs" />
+    <Compile Include="Helpers\Office\ExcelHelper.cs" />
+    <Compile Include="Helpers\Office\WordHelper.cs" />
     <Compile Include="Helpers\Web\HttpHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,7 +80,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Helpers\Hardware\LeapMotion\README.txt" />
     <Content Include="Lib\LeapCSharp.NET4.0.dll" />
     <Content Include="Lib\System.Data.SQLite.dll" />
   </ItemGroup>

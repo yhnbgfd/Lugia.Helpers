@@ -4,7 +4,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 
-namespace Lugia.Helpers.Database.SQLite
+namespace Lugia.Helpers.Database
 {
     class SQLiteHelper
     {
