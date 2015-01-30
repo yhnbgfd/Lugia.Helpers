@@ -1,4 +1,4 @@
-﻿using Lugia.Helpers.Algorithm.RSA;
+﻿using Lugia.Helpers.Algorithm;
 using System.Windows;
 using System.Windows.Controls;
 

@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Lugia.Helpers.Algorithm.RSA
+namespace Lugia.Helpers.Algorithm
 {
     /// <summary>
     /// RSA工具类
