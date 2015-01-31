@@ -52,7 +52,7 @@ namespace Lugia.Helpers.Algorithm
             {
                 cipherbytes = rsa.Encrypt(data, false);
             }
-            catch (System.Security.Cryptography.CryptographicException)
+            catch (CryptographicException)
             {
                 return "ERROR：不正确的长度";
             }
@@ -94,7 +94,7 @@ namespace Lugia.Helpers.Algorithm
             {
                 cipherbytes = rsa.Decrypt(data, false);
             }
-            catch (System.Security.Cryptography.CryptographicException)
+            catch (CryptographicException)
             {
                 return "ERROR";
             }
