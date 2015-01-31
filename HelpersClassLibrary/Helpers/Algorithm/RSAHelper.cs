@@ -150,7 +150,7 @@ namespace Lugia.Helpers.Algorithm
         /// <returns></returns>
         public bool VerifyData(string publicKey, string data, string signature)
         {
-            return VerifyData(publicKey, Encoding.UTF8.GetBytes(data), Encoding.UTF8.GetBytes(signature));
+            return VerifyData(publicKey, Encoding.UTF8.GetBytes(data), Convert.FromBase64String(signature));
         }
 
         #endregion

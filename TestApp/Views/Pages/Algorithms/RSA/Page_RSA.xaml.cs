@@ -26,6 +26,7 @@ namespace TestApp.Views.Pages.Algorithms.RSA
         private void Button_Encrypt_Click(object sender, RoutedEventArgs e)
         {
             this.TextBox_EncryptResult.Text = new RSAHelper().Encrypt(this.TextBox_Publickey.Text, this.TextBox_EncryptStr.Text);
+            this.TextBox_DecryptStr.Text = "";
         }
 
         private void Button_Decrypt_Click(object sender, RoutedEventArgs e)
@@ -40,6 +41,17 @@ namespace TestApp.Views.Pages.Algorithms.RSA
                 return;
             }
             Button_CreateKey_Click(null, null);
+        }
+
+        private void Button_SignData_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextBox_EncryptResult.Text = new RSAHelper().SignData(this.TextBox_Privatekey.Text, this.TextBox_EncryptStr.Text);
+            this.TextBox_DecryptStr.Text = "";
+        }
+
+        private void Button_VerifyData_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextBox_DecryptStr.Text = new RSAHelper().VerifyData(this.TextBox_Publickey.Text, this.TextBox_EncryptStr.Text,this.TextBox_EncryptResult.Text).ToString();
         }
     }
 }

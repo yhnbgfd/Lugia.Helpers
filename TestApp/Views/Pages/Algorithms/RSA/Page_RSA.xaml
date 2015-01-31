@@ -8,27 +8,30 @@
 	Title="Page_RSA">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="Button_CreateKey" Content="CreateKey" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_CreateKey_Click" Height="20"/>
-        <Button x:Name="Button_Encrypt" Content="公钥加密" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Encrypt_Click" Height="20"/>
-        <Button x:Name="Button_Decrypt" Content="私钥解密" HorizontalAlignment="Left" Margin="255,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Decrypt_Click" Grid.ColumnSpan="2" Height="20"/>
-        <TextBox x:Name="TextBox_EncryptStr" Height="23" Margin="10,59,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TextBox_DecryptStr" Height="23" Margin="10,59,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" VerticalContentAlignment="Center" IsReadOnly="True"/>
-        <TextBox x:Name="TextBox_Publickey" Margin="10,262,10,10" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
-        <TextBox x:Name="TextBox_Privatekey" Margin="10,112,10,10" TextWrapping="Wrap" Grid.Column="1" AcceptsReturn="True" IsReadOnly="True"/>
-        <Label Content="加密字符串：" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
-        <Label Content="解密字符串：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
-        <Label Content="公钥：" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top"/>
-        <Label Content="私钥：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top"/>
-        <Label Content="加密结果：" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_EncryptResult" Height="120" Margin="10,112,10,0" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsReturn="True" IsReadOnly="True"/>
         <ComboBox x:Name="ComboBox_dwKeySize" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="20" ToolTip="dwKeySize" SelectionChanged="ComboBox_dwKeySize_SelectionChanged">
             <ComboBoxItem Content="1024" IsSelected="True"/>
             <ComboBoxItem Content="2048"/>
         </ComboBox>
-
+        <Button x:Name="Button_CreateKey" Content="CreateKey" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_CreateKey_Click" Height="20"/>
+        <Button x:Name="Button_Encrypt" Content="公钥加密" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Encrypt_Click" Height="20"/>
+        <Button x:Name="Button_Decrypt" Content="私钥解密" HorizontalAlignment="Left" Margin="255,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Decrypt_Click" Height="20" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button_SignData" Content="私钥加密" HorizontalAlignment="Left" Margin="175,35,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_SignData_Click"/>
+        <Button x:Name="Button_VerifyData" Content="公钥解密" HorizontalAlignment="Left" Margin="255,35,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_VerifyData_Click"/>
+        <Grid Margin="0,60,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="TextBox_EncryptStr" Height="23" Margin="10,25,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="请输入要加密的字符串"/>
+            <TextBox x:Name="TextBox_DecryptStr" Height="23" Margin="10,25,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            <TextBox x:Name="TextBox_Publickey" Margin="10,228,10,10" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+            <TextBox x:Name="TextBox_Privatekey" Margin="10,78,10,10" TextWrapping="Wrap" Grid.Column="1" AcceptsReturn="True" IsReadOnly="True"/>
+            <Label Content="加密字符串：" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+            <Label Content="解密结果：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+            <Label Content="公钥：" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top"/>
+            <Label Content="私钥：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
+            <Label Content="加密结果：" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBox_EncryptResult" Height="120" Margin="10,78,10,0" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsReturn="True" IsReadOnly="True"/>
+        </Grid>
     </Grid>
 </Page>
