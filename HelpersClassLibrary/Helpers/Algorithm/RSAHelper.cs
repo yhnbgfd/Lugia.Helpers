@@ -17,9 +17,19 @@ namespace Lugia.Helpers.Algorithm
         /// <returns></returns>
         public string Encrypt(string publicKey, string content)
         {
+            return this.Encrypt(publicKey, Encoding.UTF8.GetBytes(content));
+        }
+        /// <summary>
+        /// 加密
+        /// </summary>
+        /// <param name="publicKey"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public string Encrypt(string publicKey, byte[] content)
+        {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(publicKey);
-            byte[] cipherbytes = rsa.Encrypt(Encoding.UTF8.GetBytes(content), false);
+            byte[] cipherbytes = rsa.Encrypt(content, false);
             return Convert.ToBase64String(cipherbytes);
         }
 
@@ -53,8 +63,8 @@ namespace Lugia.Helpers.Algorithm
         {
             string[] keys = new string[2];
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            keys[0] = rsa.ToXmlString(true);
-            keys[1] = rsa.ToXmlString(false);
+            keys[0] = rsa.ToXmlString(true);//私钥
+            keys[1] = rsa.ToXmlString(false);//公钥
             return keys;
         }
     }

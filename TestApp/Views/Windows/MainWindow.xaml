@@ -6,6 +6,7 @@
         <StackPanel x:Name="Grid_List" HorizontalAlignment="Left"  Margin="0,25,0,0" Width="200" Background="#FFF0F0F0" >
             <Label Content="小工具"/>
             <Button x:Name="Button_RSA" Content="RSA加密算法小工具" Margin="10,0,10,10" Click="Button_RSA_Click"/>
+            <Button x:Name="Button_AES" Content="AES加密算法小工具" Margin="10,0,10,10" Click="Button_AES_Click"/>
             <Label Content="功能学习"/>
             <Button x:Name="Button_DataGridDragDrop" Content="DataGridDragDrop" Margin="10,0,10,10" Click="Button_DataGridDragDrop_Click"/>
         </StackPanel>

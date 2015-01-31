@@ -67,6 +67,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Pages\Algorithms\AES\Page_AES.xaml.cs">
+      <DependentUpon>Page_AES.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Algorithms\RSA\Page_RSA.xaml.cs">
       <DependentUpon>Page_RSA.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Pages\Algorithms\AES\Page_AES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\Algorithms\RSA\Page_RSA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Algorithm\AESHelper.cs" />
     <Compile Include="Helpers\Algorithm\MD5Helper.cs" />
     <Compile Include="Helpers\Algorithm\RSAHelper.cs" />
     <Compile Include="Helpers\Database\SQLiteHelper.cs" />

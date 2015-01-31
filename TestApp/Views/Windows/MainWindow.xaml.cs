@@ -28,5 +28,10 @@ namespace TestApp.Views.Windows
         {
             this.Frame_Content.Content = new Pages.Systems.Page_About();
         }
+
+        private void Button_AES_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame_Content.Content = new Pages.Algorithms.AES.Page_AES();
+        }
     }
 }
