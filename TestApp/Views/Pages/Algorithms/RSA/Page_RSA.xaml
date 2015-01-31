@@ -13,8 +13,8 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_CreateKey" Content="CreateKey" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_CreateKey_Click" Height="20"/>
-        <Button x:Name="Button_Encrypt" Content="Encrypt" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Encrypt_Click" Height="20"/>
-        <Button x:Name="Button_Decrypt" Content="Decrypt" HorizontalAlignment="Left" Margin="255,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Decrypt_Click" Grid.ColumnSpan="2" Height="20"/>
+        <Button x:Name="Button_Encrypt" Content="公钥加密" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Encrypt_Click" Height="20"/>
+        <Button x:Name="Button_Decrypt" Content="私钥解密" HorizontalAlignment="Left" Margin="255,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Decrypt_Click" Grid.ColumnSpan="2" Height="20"/>
         <TextBox x:Name="TextBox_EncryptStr" Height="23" Margin="10,59,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_DecryptStr" Height="23" Margin="10,59,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" VerticalContentAlignment="Center" IsReadOnly="True"/>
         <TextBox x:Name="TextBox_Publickey" Margin="10,262,10,10" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>

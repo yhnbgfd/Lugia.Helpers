@@ -12,7 +12,7 @@ namespace Lugia.Helpers.Algorithm
     public class RSAHelper
     {
         /// <summary>
-        /// 产生公钥(1)和私钥(0)对
+        /// 产生公钥(1)和私钥(0)
         /// </summary>
         /// <param name="dwKeySize">The size of the key to use in bits.</param>
         /// <returns></returns>
@@ -47,7 +47,15 @@ namespace Lugia.Helpers.Algorithm
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(publicKey);
-            byte[] cipherbytes = rsa.Encrypt(data, false);
+            byte[] cipherbytes = null;
+            try
+            {
+                cipherbytes = rsa.Encrypt(data, false);
+            }
+            catch (System.Security.Cryptography.CryptographicException)
+            {
+                return "ERROR：不正确的长度";
+            }
             return Convert.ToBase64String(cipherbytes);
         }
 
@@ -59,7 +67,16 @@ namespace Lugia.Helpers.Algorithm
         /// <returns></returns>
         public string Decrypt(string privateKey, string data)
         {
-            return this.Decrypt(privateKey, Convert.FromBase64String(data));
+            byte[] bdata = null;
+            try
+            {
+                bdata = Convert.FromBase64String(data);
+            }
+            catch
+            {
+                return "ERROR：加密结果格式错误";
+            }
+            return this.Decrypt(privateKey, bdata);
         }
 
         /// <summary>
