@@ -8,7 +8,7 @@ namespace Lugia.Helpers.Database
 {
     class SQLiteHelper
     {
-        private SQLiteConnection _connection = null;
+        //private SQLiteConnection _connection = null;
 
     }
 }

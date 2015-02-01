@@ -27,7 +27,7 @@ namespace Lugia.Helpers.Office
             {
                 oada.Fill(ds);
             }
-            catch (Exception ee)
+            catch (Exception)
             {
                 //Helper.Log.LogHelper.LogError.Error(ee.ToString());
             }
@@ -61,7 +61,7 @@ namespace Lugia.Helpers.Office
             {
                 oada.Fill(ds);
             }
-            catch (Exception ee)
+            catch (Exception)
             {
                 //Helper.Log.LogHelper.LogError.Error(ee.ToString());
             }
