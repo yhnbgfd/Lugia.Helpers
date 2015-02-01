@@ -4,7 +4,13 @@ namespace Lugia.Helpers.IO
 {
     class FileStreamHelper
     {
-        public void FileStream(string file, string data, FileMode fileMode = FileMode.Create)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="data"></param>
+        /// <param name="fileMode"></param>
+        public void WriteLine(string file, string data, FileMode fileMode = FileMode.Create)
         {
             try
             {
@@ -18,6 +24,19 @@ namespace Lugia.Helpers.IO
             {
                 throw;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public string ReadToEnd(string file)
+        {
+            StreamReader reader = new StreamReader(file);
+            string data = reader.ReadToEnd();
+            reader.Close();
+            return data;
         }
     }
 }

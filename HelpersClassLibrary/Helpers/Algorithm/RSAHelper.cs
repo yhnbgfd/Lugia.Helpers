@@ -5,7 +5,7 @@ using System.Text;
 namespace Lugia.Helpers.Algorithm
 {
     /// <summary>
-    /// RSA工具类
+    /// RSA工具类 参考：https://msdn.microsoft.com/zh-cn/library/system.security.cryptography.rsacryptoserviceprovider(v=vs.110).aspx
     /// 出于安全的考虑，RSACryptoServiceProvider中Encrypt、Decrypt方法只支持公钥加密、私钥解密，用途是数据加密
     /// 而私钥加密、公钥解密的使用途径是数字签名，内容验证，对应RSACryptoServiceProvider中的SignData、VerifyData
     /// </summary>
@@ -45,18 +45,20 @@ namespace Lugia.Helpers.Algorithm
         /// <returns></returns>
         public string Encrypt(string publicKey, byte[] data)
         {
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            rsa.FromXmlString(publicKey);
-            byte[] cipherbytes = null;
+            byte[] encryptedData = null;
             try
             {
-                cipherbytes = rsa.Encrypt(data, false);
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+                    RSA.FromXmlString(publicKey);
+                    encryptedData = RSA.Encrypt(data, false);
+                }
             }
             catch (CryptographicException)
             {
                 return "ERROR：不正确的长度";
             }
-            return Convert.ToBase64String(cipherbytes);
+            return Convert.ToBase64String(encryptedData);
         }
 
         /// <summary>
@@ -87,18 +89,20 @@ namespace Lugia.Helpers.Algorithm
         /// <returns></returns>
         public string Decrypt(string privateKey, byte[] data)
         {
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            rsa.FromXmlString(privateKey);
-            byte[] cipherbytes = null;
+            byte[] decryptedData = null;
             try
             {
-                cipherbytes = rsa.Decrypt(data, false);
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+                    RSA.FromXmlString(privateKey);
+                    decryptedData = RSA.Decrypt(data, false);
+                }
             }
             catch (CryptographicException)
             {
                 return "ERROR";
             }
-            return Encoding.UTF8.GetString(cipherbytes);
+            return Encoding.UTF8.GetString(decryptedData);
         }
         #endregion
 

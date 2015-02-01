@@ -6,8 +6,6 @@ namespace TestApp.Views.Pages.Algorithms.RSA
 {
     public partial class Page_RSA : Page
     {
-        string[] _keys = new string[2];
-
         public Page_RSA()
         {
             InitializeComponent();
@@ -18,9 +16,9 @@ namespace TestApp.Views.Pages.Algorithms.RSA
         private void Button_CreateKey_Click(object sender, RoutedEventArgs e)
         {
             int dwKeySize = int.Parse(((ComboBoxItem)this.ComboBox_dwKeySize.SelectedItem).Content.ToString());
-            _keys = new RSAHelper().CreateKey(dwKeySize);
-            this.TextBox_Publickey.Text = _keys[1];
-            this.TextBox_Privatekey.Text = _keys[0];
+            string[]  keys = new RSAHelper().CreateKey(dwKeySize);
+            this.TextBox_Publickey.Text = keys[1];
+            this.TextBox_Privatekey.Text = keys[0];
         }
 
         private void Button_Encrypt_Click(object sender, RoutedEventArgs e)
