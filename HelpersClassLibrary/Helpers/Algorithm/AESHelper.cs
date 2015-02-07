@@ -31,7 +31,7 @@ namespace Lugia.Helpers.Algorithm
         /// <param name="Key"></param>
         /// <param name="IV"></param>
         /// <returns></returns>
-        public static string EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
+        public static string Encrypt(string plainText, byte[] Key, byte[] IV)
         {
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
@@ -76,9 +76,9 @@ namespace Lugia.Helpers.Algorithm
         /// <param name="Key"></param>
         /// <param name="IV"></param>
         /// <returns></returns>
-        public static string EncryptStringToBytes_Aes(string plainText, string Key, string IV)
+        public static string Encrypt(string plainText, string Key, string IV)
         {
-            return EncryptStringToBytes_Aes(plainText, Convert.FromBase64String(Key), Convert.FromBase64String(IV));
+            return Encrypt(plainText, Convert.FromBase64String(Key), Convert.FromBase64String(IV));
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Lugia.Helpers.Algorithm
         /// <param name="Key"></param>
         /// <param name="IV"></param>
         /// <returns></returns>
-        public static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+        public static string Decrypt(byte[] cipherText, byte[] Key, byte[] IV)
         {
             // Check arguments.
             if (cipherText == null || cipherText.Length <= 0)
@@ -136,9 +136,9 @@ namespace Lugia.Helpers.Algorithm
         /// <param name="Key"></param>
         /// <param name="IV"></param>
         /// <returns></returns>
-        public static string DecryptStringFromBytes_Aes(string cipherText, string Key, string IV)
+        public static string Decrypt(string cipherText, string Key, string IV)
         {
-            return DecryptStringFromBytes_Aes(Convert.FromBase64String(cipherText), Convert.FromBase64String(Key), Convert.FromBase64String(IV));
+            return Decrypt(Convert.FromBase64String(cipherText), Convert.FromBase64String(Key), Convert.FromBase64String(IV));
         }
     }
 }

@@ -14,12 +14,12 @@ namespace TestApp.Views.Pages.Algorithms.AES
         private void Button_Encrypt_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             this.TextBox_DecryptText.Text = "";
-            this.TextBox_CipherText.Text = AESHelper.EncryptStringToBytes_Aes(this.TextBox_Plaintext.Text, this.TextBox_Key.Text, this.TextBox_VI.Text);
+            this.TextBox_CipherText.Text = AESHelper.Encrypt(this.TextBox_Plaintext.Text, this.TextBox_Key.Text, this.TextBox_VI.Text);
         }
 
         private void Button_Decrypt_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            this.TextBox_DecryptText.Text = AESHelper.DecryptStringFromBytes_Aes(this.TextBox_CipherText.Text, this.TextBox_Key.Text, this.TextBox_VI.Text);
+            this.TextBox_DecryptText.Text = AESHelper.Decrypt(this.TextBox_CipherText.Text, this.TextBox_Key.Text, this.TextBox_VI.Text);
         }
 
         private void Button_CreateKey_Click(object sender, System.Windows.RoutedEventArgs e)
