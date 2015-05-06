@@ -11,6 +11,7 @@ namespace TestApp.Views.Windows
 
         private void Button_RSA_Click(object sender, RoutedEventArgs e)
         {
+
             this.Frame_Content.Content = new Pages.Algorithms.RSA.Page_RSA();
         }
 

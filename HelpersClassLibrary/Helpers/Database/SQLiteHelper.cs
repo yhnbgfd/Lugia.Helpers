@@ -6,9 +6,13 @@ using System.Text;
 
 namespace Lugia.Helpers.Database
 {
-    class SQLiteHelper
+    static class SQLiteHelper
     {
-        //private SQLiteConnection _connection = null;
+        private static SQLiteConnection _connection = new SQLiteConnection();
 
+        static SQLiteHelper()
+        {
+            Console.WriteLine(@"asd");
+        }
     }
 }
